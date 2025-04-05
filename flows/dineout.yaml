@@ -1,0 +1,65 @@
+appId: com.max.heymax
+
+---
+- tapOn: "HeyMax"
+- tapOn: "Dine out"
+- extendedWaitUntil:
+    visible: "Bar"
+- tapOn: "Bar"
+- tapOn: "Search a restaurant, location or cuisine"
+- hideKeyboard
+- extendedWaitUntil:
+    visible: "Bar"
+- assertVisible: "Bar"
+
+# Select Restaurant
+- tapOn:
+    point: "26%,45%"
+
+# Save Collection (toggle)
+- tapOn:
+    point: "69%,26%"
+- tapOn:
+    point: "69%,26%"
+
+# Make Reservation
+- tapOn:
+    text: "Make a reservation on Chope"
+    index: 1
+
+- tapOn: "12 Mar 2025" # Initial tap action
+- takeScreenshot: "screenshot/calendar_opened"
+- repeat:
+      times: 2
+      commands:
+          - tapOn:
+                point: "78%,57%"
+
+# Agree to Terms
+- tapOn:
+    point: "13%,88%"
+- extendedWaitUntil:
+    visible: "Next"
+- tapOn: "Next"
+
+# Select Title (Mr/Ms.)
+- tapOn: "Mr."  # Open dropdown
+- extendedWaitUntil:
+    visible: "Ms."
+- tapOn: "Ms."  # Select Ms.
+- assertVisible: "Ms."  # Ensure it is selected
+
+# Enter Personal Details
+- tapOn: "First Name"
+- inputText: "Bala"
+- tapOn: "Surname"
+- inputText: "A"
+- tapOn: "Email Address"
+- inputText: "bala02aadhikesavan@gmail.com"
+- tapOn: "Phone Number"
+- inputText: "9123 4567"  # Ensure the correct format
+
+# Acknowledge Booking Condition
+- extendedWaitUntil:
+    visible: "I acknowledge that the reservation time will be limited to 2 hours for this booking."
+- tapOn: "I acknowledge that the reservation time will be limited to 2 hours for this booking."

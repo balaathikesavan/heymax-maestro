@@ -1,0 +1,9 @@
+output.login = {
+   email_valid: "bala02aadhikesavan@gmail.com",
+   password_valid: "bala02aadhi@18",
+
+   email_invalid: "balapreethi2002@gmail.com",
+   password_invalid: "balapreethi",
+
+   email_non_existent: "varsha1234@gmail.com"
+};

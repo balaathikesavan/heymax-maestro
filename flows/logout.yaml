@@ -1,0 +1,17 @@
+appId: com.max.heymax
+
+---
+- tapOn: "HeyMax"
+- tapOn:
+    point: "92%,5%"
+
+- scrollUntilVisible:
+    direction: DOWN  # Change to UP if needed
+    element:
+      text: "Log out"
+    speed: 50  # Adjust scroll speed
+    timeout: 10000  # Waits up to 10 seconds
+
+- tapOn: "Log out"
+- tapOn:
+    point: "50%,93%"

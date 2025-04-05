@@ -1,0 +1,43 @@
+appId: com.heymax.app
+---
+- tapOn: "HeyMax"
+- tapOn: "Shopee, 5/INR"
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Shopee"
+    index: 1
+- assertVisible: "Search vouchers"
+- assertVisible:
+    text: "Earn Max Miles"
+    index: 0
+- assertVisible:
+    text: "merchant"
+    index: 2
+- assertVisible: "5262 (Marketplaces)"
+- assertVisible: "Avg + 5 MPD"
+- assertVisible: "Total rewards"
+- assertVisible:
+    text: "Hot amongst Maxers 🔥"
+    index: 1
+- assertVisible:
+    text: "Women Clothes"
+    index: 1
+- assertVisible:
+    text: "Men Clothes"
+    index: 1
+- tapOn: "Search merchants"
+
+#HM_Shop Online_UT003
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      point: "10%,35%"
+    speed: 50
+    timeout: 10000
+
+- tapOn:
+    point: "10%,35%"
+- assertVisible: "Card type"
+- assertVisible:
+    id: "omni-search-results-section"

@@ -1,0 +1,12 @@
+appId: com.max.heymax
+
+---
+- launchApp
+- waitForAnimationToEnd
+- extendedWaitUntil:
+
+    visible: "Shop with HeyMax"
+- tapOn: "Shop with HeyMax"
+- tapOn:
+    text: "merchant Disney Plus Upsized 1200 Max Miles New User Until 30 Mar 2025"
+- tapOn: "Shop with Max"

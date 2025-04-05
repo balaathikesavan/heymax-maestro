@@ -1,0 +1,41 @@
+appId: com.max.heymax
+
+---
+# Launch the HeyMax app
+- tapOn: "HeyMax"
+
+# Ensure "Log in" button is visible before tapping
+- extendedWaitUntil:
+      visible: "Log in"
+
+- tapOn: "Log in"
+
+# Run the script to load credentials from Excel
+- runScript: ../pages/readExcel.js
+
+# Ensure "Email address" field is visible before tapping
+- extendedWaitUntil:
+      visible: "Email address"
+
+- tapOn: "Email address"
+- inputText: ${output.excelData.email}  # Read email from Excel
+- hideKeyboard
+
+# Ensure "Password" field is visible before tapping
+- extendedWaitUntil:
+      visible: "Password"
+
+- tapOn: "Password"
+- inputText: ${output.excelData.password}  # Read password from Excel
+- hideKeyboard
+
+# Ensure "Log in" button is visible before tapping
+- extendedWaitUntil:
+      visible: "Log in"
+
+- tapOn:
+      text: "Log in"
+      index: 1  # Ensure correct index if multiple "Log in" buttons exist
+
+# Take a screenshot after login attempt
+- takeScreenshot: test-results/after_login.png

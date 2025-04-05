@@ -1,0 +1,194 @@
+appId: com.max.heymax
+---
+
+# Launch App (Only needed for iOS)
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - launchApp
+- runFlow:
+    when:
+      platform: android
+    commands:
+      - tapOn: "HeyMax"  # This will tap on the app icon to open it
+
+# Common Login Steps
+- tapOn: "Log In"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala02aadhikesavan@gmail.com"
+- assertVisible: "bala02aadhikesavan@gmail.com"
+- tapOn: "Password"
+- longPressOn: "Password"
+- eraseText
+- inputText: "bala02aadhi@18"
+- tapOn: "Log In"
+- waitForAnimationToEnd
+
+# Handle Post Login Popups
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+      platform: android
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+- runFlow:
+    when:
+      visible: "Not Now"
+      platform: iOS
+    commands:
+      - tapOn: "Not Now"
+
+# Tap to Proceed (iOS-specific)
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn:
+          point: "50%,53%"
+
+# Assert Visible After Login
+- assertVisible: "LIFETIME MILES"
+
+# Logout Process (Common for Both Platforms)
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn:
+          point: 50%,91%
+
+# HM_Forgot Password_E2ETC005 - Forgot Password Flow
+- tapOn: "Log In"
+- tapOn: "Email"
+- inputText: "sowmiya@qaoncloud.com"
+- hideKeyboard
+- waitForAnimationToEnd
+- doubleTapOn: "Forgot password?"
+
+# Platform-Specific Password Reset Verification
+- runFlow:
+    when:
+      visible: "Password reset email sent to true. Please check your email, it might be in the spam folder."
+      platform: android
+    commands:
+      - assertVisible: "Password reset email sent to true. Please check your email, it might be in the spam folder."
+
+- runFlow:
+    when:
+      visible: "A password reset link has been sent to your email."
+      platform: iOS
+    commands:
+      - assertVisible: "A password reset link has been sent to your email."
+
+# HM_GoogleLogin_E2ETC008 - Google Login
+- tapOn: "Google"
+- waitForAnimationToEnd
+
+# Handling Google Login Differences
+- runFlow:
+    when:
+      platform: android
+    commands:
+      - back
+      - tapOn: "Google"
+      - waitForAnimationToEnd
+      - tapOn: "Email or phone"
+      - inputText: "bala02aadhikesavan@gmail.com"
+      - tapOn: "NEXT"
+      - tapOn: "Enter your password"
+      - inputText: "Welcome@01"
+      - tapOn: "NEXT"
+      - tapOn: "I agree"
+      - waitForAnimationToEnd
+      - tapOn: "ACCEPT"
+      - waitForAnimationToEnd
+
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn: "Continue with Google"
+      - waitForAnimationToEnd
+      - tapOn: "Email or phone"
+      - inputText: "sowmiya@qaoncloud.com"
+      - tapOn: "Next"
+      - tapOn: "Enter your password"
+      - inputText: "Sowmiyasuryaa12"
+      - hideKeyboard
+      - waitForAnimationToEnd
+      - tapOn: sowmiya@qaoncloud.com
+      - tapOn: "Next"
+      - tapOn: "Continue"
+
+# Post Google Login Popups
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+- assertVisible: "Unlock Your First 50 Miles in Minutes!"
+
+# Logout Again
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn:
+          point: 50%,91%
+
+# HM_Loginpage_E2ETC010 - Terms & Privacy Policy
+- tapOn: "Terms of Service"
+- assertVisible: "THE GUIDELINES"
+- assertVisible:
+    text: "HeyMax"
+    index: 2
+- assertVisible: "Terms of Use"
+- tapOn: "Done"
+
+- tapOn: "Privacy Policy"
+- assertVisible: "IT'S OUR PRIORITY"
+- tapOn: "HeyMax"
+- assertVisible: "Privacy Policy"
+- tapOn: "Done"
+
+- pressKey: HOME

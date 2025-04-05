@@ -1,0 +1,22 @@
+appId: com.max.heymax
+
+---
+- tapOn: "HeyMax"
+- tapOn:
+      point: "82%,38%"
+- tapOn: "Groceries"
+- tapOn: "merchant Fairprice In-store Gift Cards Up to 0.25 Max Miles per $1"
+- tapOn:
+      point: "12%,24%" #selecting the 5 dollar button
+- tapOn:
+      point: "23%,39%" #increasing the quantity
+- tapOn: "Checkout"
+- tapOn: "Card Number"
+- inputText: "4111 1111 1111 1111"
+- tapOn: "MM"
+- inputText: "11"
+- tapOn: "YY"
+- inputText: "27"
+- tapOn: "CVV"
+- inputText: "123"
+- tapOn: "Confirm and Pay"

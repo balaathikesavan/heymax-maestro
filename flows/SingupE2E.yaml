@@ -1,0 +1,242 @@
+appId: com.heymax.app
+---
+# TC -01 Verify Sign up page with valid Email and valid Password
+- tapOn: "HeyMax"
+- tapOn: "Sign Up"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "mailneeded@gmail.com"
+- assertVisible: "mailneeded@gmail.com"
+- tapOn: "Password"
+- eraseText
+- inputText: "coolenhoverauthor"
+- tapOn: "Confirm Password"
+- eraseText
+- inputText: "coolenhoverauthor"
+- waitForAnimationToEnd
+- tapOn: "Sign Up"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,56%"
+
+- runFlow:
+    when:
+      visible: "Save"
+    commands:
+      - tapOn: "Save"
+
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "See how it works"
+    commands:
+      - tapOn: "See how it works"
+
+- assertVisible: "Shop your favourite brands, earn miles"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Get Started, "
+    commands:
+      - tapOn: "Get Started, "
+
+- tapOn: "Redeem your trip"
+- waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Get Started"
+    commands:
+      - tapOn: "Get Started"
+
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Logging out the application
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+
+# TC-02 Validate Sign-Up Functionality with already registered email and valid password
+- tapOn: "Sign Up"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "balapreethi2002@gmail.com"
+- assertVisible: "balapreethi2002@gmail.com"
+- tapOn: "Password"
+- eraseText
+- inputText: "user@123"
+- tapOn: "Confirm Password"
+- eraseText
+- inputText: "user@123"
+- waitForAnimationToEnd
+- tapOn: "Sign Up"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,56%"
+- assertVisible: "Sign up failed, Please try again!"
+
+# TC - 03 Validate Sign-Up Functionality with different values in Password and Confirm Password
+- tapOn: "Sign Up"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "balapreethi2002@gmail.com"
+- assertVisible: "balapreethi2002@gmail.com"
+- tapOn: "Password"
+- eraseText
+- inputText: "user@123"
+- tapOn: "Confirm Password"
+- eraseText
+- inputText: "user@1234"
+- waitForAnimationToEnd
+- tapOn: "Sign Up"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,56%"
+- assertVisible: "Passwords don't match"
+
+# TC - 04 Validate Sign-Up Functionality by leaving the email, password and confirm password field empty
+- tapOn: "Sign Up"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- tapOn: "Password"
+- eraseText
+- tapOn: "Confirm Password"
+- eraseText
+- waitForAnimationToEnd
+- tapOn: "Sign Up"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,56%"
+- assertVisible: "Invalid email address"
+- assertVisible: "Password must be at least 6 characters"
+- assertVisible: "Sign up failed, Please try again!"
+- assertVisible: "Email"
+- assertVisible: "Password"
+- assertVisible: "Confirm Password"
+
+# TC-05 Validate Sign-Up Functionality by entering short password
+- tapOn: "Sign Up"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "balapreethi2002@gmail.com"
+- assertVisible: "balapreethi2002@gmail.com"
+- tapOn: "Password"
+- eraseText
+- inputText: "user"
+- tapOn: "Confirm Password"
+- eraseText
+- inputText: "user"
+- waitForAnimationToEnd
+- tapOn: "Sign Up"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,56%"
+- assertVisible: "Password must be at least 6 characters"
+- pressKey: HOME
+
+# TC -06 Validate Login with Google button
+- longPressOn: "HeyMax"
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "App Info"
+    commands:
+      - tapOn: "App Info"
+- tapOn: "Storage & cache"
+- tapOn: "Clear storage"
+- tapOn: "Delete"
+- back
+- back
+- tapOn: "HeyMax"
+- tapOn: "Log In"
+- tapOn: "Google"
+- assertVisible: "Choose an account"
+- back
+- tapOn: "Google"
+- runFlow:
+    when:
+      visible:
+        point: "55%,53%"
+    commands:
+      - tapOn:
+          point: "55%,53%"
+
+- tapOn: "Proceed to Singapore Site"
+
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- pressKey: HOME
+
+#HM_GoogleLogin_E2ETC007
+- longPressOn: "HeyMax"
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "App Info"
+    commands:
+      - tapOn: "App Info"
+- tapOn: "Storage & cache"
+- tapOn: "Clear storage"
+- tapOn: "Delete"
+- back
+- back
+- tapOn: "HeyMax"
+- tapOn: "Log In"
+- tapOn: "Google"
+- assertVisible: "Choose an account"
+- back
+- tapOn: "Google"
+- back
+- assertVisible: "Log In"
+
+# TC -08 Validate Login with Apple button
+- tapOn: "HeyMax"
+- assertVisible: "Log In"
+- tapOn: "Log In"
+- tapOn: ", Apple"
+- assertVisible: "Apple Sign In is not supported on this device"
+- pressKey: HOME
+
+# TC -10 Validate redirection to Terms of Use and Privacy Policy link available in Login and sign up screen
+- tapOn: "HeyMax"
+- assertVisible: "Sign Up"
+- tapOn: "Sign Up"

@@ -1,0 +1,99 @@
+# LoginE2E_Native script for Android
+appId: com.heymax.app
+---
+
+#HM_Login_E2ETC001
+- tapOn: "HeyMax"
+- tapOn: "Log In"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala02aadhikesavan@gmail.com"
+- assertVisible: "bala02aadhikesavan@gmail.com"
+- tapOn: "Password"
+- longPressOn: "Password"
+- eraseText
+- inputText: "bala02aadhi@18"
+- tapOn: "Log In"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,50%"
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+- assertVisible: "LIFETIME MILES, 0, .0, , 0 this week, "
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+
+#HM_Forgot Password_E2ETC005
+- tapOn: "Log In"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala02aadhikesavan@gmail.com"
+- assertVisible: "bala02aadhikesavan@gmail.com"
+- doubleTapOn: "Forgot password?"
+- assertVisible: "Password reset email sent to true. Please check your email, it might be in the spam folder."
+
+#HM_GoogleLogin_E2ETC008
+- tapOn: "Log In"
+- tapOn: "Google"
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- back
+- tapOn: "Google"
+- runFlow:
+    when:
+      visible: "Add another account"
+    commands:
+      - tapOn: "Add another account"
+- waitForAnimationToEnd
+- tapOn: "Email or phone"
+- inputText: "bala02aadhikesavan@gmail.com"
+- tapOn: "NEXT"
+- tapOn: "Enter your password"
+- inputText: "Welcome@01"
+- tapOn: "NEXT"
+- tapOn: "I agree"
+- waitForAnimationToEnd
+- tapOn: "ACCEPT"
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+- assertVisible: "Unlock Your First 50 Miles in Minutes!"
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+- pressKey: HOME
+

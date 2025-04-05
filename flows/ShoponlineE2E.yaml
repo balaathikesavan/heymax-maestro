@@ -1,0 +1,403 @@
+# SoponlineE2E_Native script for Android
+
+appId: com.heymax.app
+---
+
+#HM_Shop Online_E2ETC001
+- tapOn: "HeyMax"
+- tapOn: "Log In"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala02aadhikesavan@gmail.com"
+- assertVisible: "bala02aadhikesavan@gmail.com"
+- tapOn: "Password"
+- longPressOn: "Password"
+- eraseText
+- inputText: "bala02aadhi@18"
+- tapOn: "Log In"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,50%"  #clicking the login button again
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- swipe:
+    direction: "up"
+- swipe:
+    direction: "down"
+- assertVisible: "Shop Online"
+- tapOn: "Shop Online"
+- assertVisible: "Earn Max Miles"
+- tapOn: "Search merchants"
+- inputText: "Amazon" #seaching for merchant
+- assertVisible: "Amazon, 4/SGD, , 󰔘"
+- longPressOn: "Search merchants"
+- eraseText
+- inputText: "Ama" #partial merchant name
+- waitForAnimationToEnd
+- assertVisible: "Amazin' Graze, 0/SGD"
+- assertVisible: "Amazon, 4/SGD, , 󰔘"
+- longPressOn: "Search merchants"
+- eraseText
+- inputText: "xyz" #invalid shop name
+- waitForAnimationToEnd
+- assertVisible: "No results found in \"Shop online\""
+- longPressOn: "Search merchants"
+- eraseText
+- inputText: "@#1234!" #Random strings
+- waitForAnimationToEnd
+- assertVisible: "No results found in \"Shop online\""
+- longPressOn: "Search merchants"
+- eraseText
+#- tapOn:
+    #point: "80%,16%" # clicking the cross symbol on the search bar
+- assertVisible: "Apple, 0.5/SGD, , 󰔘"
+- tapOn: "Search merchants"
+
+
+#HM_Shop Online_E2ETC002
+- tapOn: "Search merchants"
+- inputText: "Namecheap" #seaching for merchant
+- waitForAnimationToEnd
+- assertVisible: "Namecheap, 26/SGD, "
+- doubleTapOn: "Namecheap, 26/SGD, "
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- assertVisible: "Namecheap"  #merchant name
+
+#HM_Shop Online_E2ETC003
+- tapOn:
+    point: "78%,22%" #clicking the share icon
+- assertVisible: "WhatsApp"
+- assertVisible: "Telegram"
+- assertVisible: "Facebook"
+- assertVisible: "LinkedIn"
+- assertVisible: "Twitter"
+- assertVisible: "Gmail"
+- assertVisible: "Reddit"
+- tapOn: "Copy link to share"
+- back
+
+ # HM_Shop Online_E2ETC004
+- doubleTapOn: "Namecheap, 26/SGD, "
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- tapOn:
+    point: "69%,22%" #clicking the like option
+- assertVisible: "Namecheap is saved to your collection."
+- assertVisible: "Your saved merchants can be found via your profile."
+- tapOn:
+    point: "69%,22%" #clicking the like option to get back to normal screen
+- tapOn:
+    point: "69%,22%" #clicking the like option
+- assertVisible: "Namecheap is removed from your collection."
+- assertVisible: "Your saved merchants can be found via your profile." #Bug
+- tapOn:
+    point: "69%,22%" #clicking the like option to get back to normal screen
+- tapOn:
+    point: "69%,22%"
+- assertVisible:
+    id: "filter-cardtype-miles" #after clicking like it has to changed or filleed with black color
+- back
+- back
+- tapOn:
+    point: "91%,24%" #clicking the like option near seach bar
+- runFlow:
+    when:
+      visible: "Namecheap, 26/SGD"
+    commands:
+      - assertVisible: "Namecheap, 26/SGD"
+      - doubleTapOn: "Namecheap, 26/SGD"
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Namecheap"
+    commands:
+      - assertVisible: "Namecheap"  #merchant name
+- back
+- back
+- tapOn: "Shop Online"
+- tapOn: "Search merchants"
+- inputText: "Namecheap" #seaching for merchant
+- waitForAnimationToEnd
+- doubleTapOn: "Namecheap, 26/SGD, "
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- tapOn:
+    point: "69%,22%"
+- tapOn:
+    point: "67%,31%" #just click the home screen
+- back
+- back
+- tapOn:
+    point: "91%,24%" #clicking the like option near seach bar
+- assertVisible: "No Favourites"
+- assertVisible: "Save your go-to brands for quick access and never miss out on miles. Tap the ❤️ to start building your list!"
+- back
+
+#HM_Shop Online_E2ETC005
+- tapOn: "Shop Online"
+- tapOn: "Search merchants"
+- inputText: "Namecheap" #seaching for merchant
+- waitForAnimationToEnd
+- doubleTapOn: "Namecheap, 26/SGD, "
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- tapOn:
+    point: "88%,22%" #clicking the 3 dot near merchant
+- assertVisible: "Store name:"
+- assertVisible:
+    text: "Namecheap"
+    index: 1
+- assertVisible: "Address:"
+- runFlow:
+    when:
+      visible: "Not available"
+    commands:
+      - assertVisible:
+          text: "Not available"
+          index: 0
+- assertVisible: "Phone numbers:"
+- runFlow:
+    when:
+      visible: "Not available"
+    commands:
+      - assertVisible:
+          text: "Not available"
+          index: 0
+- assertVisible: "Category details:"
+- assertVisible: "The rewards for the merchant's primary category (4816) are shown by default."
+- assertVisible: "Business names:"
+- assertVisible:
+    text: "Namecheap"
+    index: 2  # business name
+- tapOn: "Filter by" #just tap the home screen anywhere to get back to normal
+
+#HM_Shop Online_E2ETC007
+- tapOn: "Shop with Max"
+- waitForAnimationToEnd
+- assertVisible: "Grab your first .online domain for just $0.98 and any additional ones for $2.88. →"
+- assertVisible:
+    text: "Make more online, for less"
+    index: 1
+- back
+- waitForAnimationToEnd
+
+# HM_Shop Online_E2ETC008
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Shop"
+    speed: 50
+    timeout: 10000
+- assertVisible: "Shop"
+- tapOn: "Shop"
+- waitForAnimationToEnd
+- assertVisible: "Grab your first .online domain for just $0.98 and any additional ones for $2.88. →"
+- assertVisible:
+    text: "Make more online, for less"
+    index: 1
+- back
+- waitForAnimationToEnd
+
+#HM_Shop Online_E2ETC010
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      point: "10%,57%"
+    speed: 50
+    timeout: 10000
+- tapOn:
+    point: "10%,57%"
+- assertVisible: "Card type"
+- assertVisible: "Banks"
+- assertVisible: "Cashback cards"
+- assertVisible: "Miles cards"
+- assertVisible: "American Express"
+- assertVisible: "Aspire"
+- assertVisible: "Bank of China"
+- assertVisible: "CIMB"
+- assertVisible: "Chocolate Finance"
+- assertVisible: "Citibank"
+- assertVisible: "DBS/POSB"
+- assertVisible: "DCS Card Centre"
+- assertVisible: "HSBC"
+- assertVisible: "ICBC"
+- assertVisible: "Maybank"
+- assertVisible: "OCBC"
+- assertVisible: "Standard Chartered"
+- assertVisible: "Trust"
+- assertVisible: "UOB"
+
+ #uncheck all the checked checkboxes
+- tapOn: "Miles cards"
+- tapOn: "Cashback cards"
+- tapOn:
+    point: "92%,49%"  #American Expree cards
+- tapOn:
+    id: "filter-cardtype-Aspire"
+- tapOn:
+    id: "filter-cardtype-Bank of China"
+- tapOn:
+    id: "filter-cardtype-CIMB"
+- tapOn:
+    id: "filter-cardtype-Chocolate Finance"
+- tapOn:
+    id: "filter-cardtype-Citibank"
+- tapOn:
+    id: "filter-cardtype-DBS/POSB"
+- tapOn:
+    id: "filter-cardtype-DCS Card Centre"
+- tapOn:
+    id: "filter-cardtype-HSBC"
+- tapOn:
+    id: "filter-cardtype-Maybank"
+- tapOn:
+    id: "filter-cardtype-OCBC"
+- tapOn:
+    id: "filter-cardtype-Standard Chartered"
+- tapOn:
+    id: "filter-cardtype-Trust"
+- tapOn:
+    id: "filter-cardtype-UOB"
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Validus Capital"
+    speed: 50
+    timeout: 10000
+- assertVisible: "Validus Capital"
+- assertVisible: "Youtrip"
+
+#check all the unchecked check boxes
+- swipe:
+      direction: "down"
+- tapOn: "Miles cards"
+- tapOn: "Cashback cards"
+- tapOn:
+    point: "92%,49%"  #American Expree cards
+- tapOn:
+    id: "filter-cardtype-Aspire"
+- tapOn:
+    id: "filter-cardtype-Bank of China"
+- tapOn:
+    id: "filter-cardtype-CIMB"
+- tapOn:
+    id: "filter-cardtype-Chocolate Finance"
+- tapOn:
+    id: "filter-cardtype-Citibank"
+- tapOn:
+    id: "filter-cardtype-DBS/POSB"
+- tapOn:
+    id: "filter-cardtype-DCS Card Centre"
+- tapOn:
+    id: "filter-cardtype-HSBC"
+- tapOn:
+    id: "filter-cardtype-Maybank"
+- tapOn:
+    id: "filter-cardtype-OCBC"
+- tapOn:
+    id: "filter-cardtype-Standard Chartered"
+- tapOn:
+    id: "filter-cardtype-Trust"
+- tapOn:
+    id: "filter-cardtype-UOB"
+
+- tapOn: "Clear all"
+- tapOn:
+    id: "filter-cardtype-Aspire" #apllying filter
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "See result"
+    speed: 50
+    timeout: 10000
+- assertVisible: "See result"
+- tapOn: "See result"
+- tapOn:
+    point: "10%,80%"  #Again clicking the filter
+- assertVisible:
+    id: "filter-cardtype-Aspire"
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "See result"
+    speed: 50
+    timeout: 10000
+- assertVisible: "See result"
+- tapOn: "See result"
+
+
+#HM_Shop Online_E2ETC011
+- tapOn:
+    point: "88%,57%" #clicking the dropdown of the card
+- tapOn:
+    point: "85%,58%"
+- tapOn: "I own this"
+- back
+- back
+- tapOn: "View my, Cards"
+- waitForAnimationToEnd
+- assertVisible: "OCBC Frank Credit Card"
+- tapOn:
+    point: "90%,32%" #clicking the icon to remove the crad
+- tapOn: "Remove Card"
+- tapOn: "Remove"
+- back
+
+#HM_Shop Online_E2ETC012
+- tapOn: "Shop Online"
+- tapOn: "Search merchants"
+- inputText: "Namecheap" #seaching for merchant
+- waitForAnimationToEnd
+- tapOn: "Namecheap, 26/SGD, "
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "OCBC Frank Credit Card"
+
+    speed: 50
+    timeout: 10000
+- assertVisible:
+    text: "OCBC Frank Credit Card"
+    index: 1
+
+- tapOn:
+    point: "88%,57%" #clicking the dropdown of the card
+- tapOn:
+    point: "85%,58%"
+- tapOn: "Apply"
+- back
+- back
+- back
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+- pressKey: HOME
+
+
+

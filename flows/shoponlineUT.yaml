@@ -1,0 +1,301 @@
+# shoponlineUT_native script for Android
+
+appId: com.heymax.app
+---
+
+#HM_Shop Online_UT001
+
+- tapOn: "HeyMax"
+- tapOn: "Log In"
+- assertVisible: "Log In"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala02aadhikesavan@gmail.com"
+- assertVisible: "bala02aadhikesavan@gmail.com"
+- tapOn: "Password"
+- longPressOn: "Password"
+- eraseText
+- inputText: "bala02aadhi@18"
+- tapOn: "Log In"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,50%"  #clicking the login button again
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- swipe:
+      direction: "up"
+- swipe:
+      direction: "down"
+- assertVisible: "Shop Online"
+- tapOn: "Shop Online"
+- assertVisible: "Earn Max Miles"
+
+#HM_Shop Online_UT002
+- assertVisible: "Search merchants" #search bar
+- assertVisible: "󰈳" #filter
+- assertVisible: "Shop online" #categories
+- assertVisible: "Deals"
+- assertVisible: "Book travel"
+- assertVisible: "Order food"
+- assertVisible: "Dine out"
+- assertVisible: "Book a ride"
+- assertVisible: "Apply for card"
+- assertVisible: "Get insured"
+- assertVisible: "Shopee, 5/SGD, Featured, "
+- tapOn: "Search merchants"
+- doubleTapOn:
+      point: "92%,16%" #tapping the filter
+- tapOn: "Apply"
+- tapOn: "Book travel"
+- tapOn: "Order food"
+- tapOn: "Dine out"
+- tapOn: "Book a ride"
+- tapOn: "Apply for card"
+- tapOn: "Get insured"
+- tapOn: "Shop online"
+
+#HM_Shop Online_UT003
+- doubleTapOn:
+      point: "92%,16%" #filter
+- assertVisible: "Filter and Sort"
+- assertVisible: "FILTER MERCHANTS"
+
+#HM_Shop Online_UT004
+- assertVisible: "All merchants" #filter sections ui elements
+- assertVisible: "Merchants with shop"
+- assertVisible: "Merchants with vouchers"
+- assertVisible: "SORT BY"
+- assertVisible: ", Popularity"
+- assertVisible: "Reward (High to Low)"
+- assertVisible: "Merchant Name (A - Z)"
+- assertVisible: "Apply"
+
+- doubleTapOn:
+    point: "92%,16%" #filter
+- tapOn: "All merchants"
+- tapOn: "Popularity"
+- tapOn: "Apply"
+- doubleTapOn:
+      point: "92%,16%"
+- tapOn: "Reward (High to Low)"
+- tapOn: "Apply"
+- doubleTapOn:
+      point: "92%,16%"
+- tapOn: "Merchant Name (A - Z)"
+- tapOn: "Apply"
+- doubleTapOn:
+      point: "92%,16%"
+- tapOn: "Merchant Name (A - Z)"
+- tapOn: "Apply"
+- doubleTapOn:
+      point: "92%,16%"
+- tapOn: "Merchants with shop"
+- tapOn: "Popularity"
+- tapOn: "Apply"
+- doubleTapOn:
+      point: "92%,16%"
+- tapOn: "Reward (High to Low)"
+- tapOn: "Apply"
+- doubleTapOn:
+      point: "92%,16%"
+- tapOn: "Merchant Name (A - Z)"
+- tapOn: "Apply"
+- doubleTapOn:
+      point: "92%,16%"
+- tapOn: "Merchants with vouchers"
+- tapOn: "Popularity"
+- tapOn: "Apply"
+- doubleTapOn:
+        point: "92%,16%"
+- tapOn: "Reward (High to Low)"
+- tapOn: "Apply"
+- doubleTapOn:
+      point: "92%,16%"
+- tapOn: "Merchant Name (A - Z)"
+- tapOn: "Apply"
+
+#HM_Shop Online_UT005
+- tapOn: "Search merchants"
+- inputText: "Namecheap" #seaching for merchant
+- waitForAnimationToEnd
+- tapOn: "Namecheap, 26/SGD, "
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+
+- assertVisible: #merchant logo
+    text: "merchant"
+    index: 0
+- assertVisible: "Double your miles"
+- assertVisible: "Total rewards"
+- assertVisible: "Namecheap"  #merchant name
+- assertVisible: "Card Rewards" #card rewards
+- assertVisible:
+    text: "Earn Max Miles"
+    index: 1
+
+#HM_Shop Online_UT006
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Shop"
+    speed: 50
+    timeout: 10000
+- assertVisible: "Shop"
+- tapOn: "Shop"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+#HM_Shop Online_UT007
+- assertVisible: "Shop with Max"
+- tapOn: "Shop with Max"
+- back
+
+#HM_Shop Online_UT008
+- assertVisible: "Avoid missing out on Max Miles"
+- tapOn: "Avoid missing out on Max Miles"
+- assertVisible:
+    text: "Terms & Conditions"
+    index: 0
+- assertVisible:
+    text: "Okay, got it!"
+    index: 0
+- assertVisible:
+    text: "Shop via HeyMax only"
+    index: 0
+- assertVisible:
+    text: "Avoid clicking external links before checkout. Max Miles cannot be earned in conjunction with other rewards programs."
+    index: 0
+- assertVisible:
+    text: "Avoid ad-blockers or extensions"
+    index: 0
+- assertVisible:
+    text: "Turn off ad blockers and other extensions when you shop."
+    index: 0
+- assertVisible:
+    text: "Use promo codes featured on HeyMax only"
+    index: 0
+- assertVisible:
+    text: "Purchases using promo codes from external sources may be rejected by our partner."
+    index: 0
+- assertVisible:
+    text: "Excludes taxes, fees, service charges, store credits & gift cards"
+    index: 0
+- assertVisible:
+    text: "Only the base purchase amount qualifies for earning Max Miles."
+    index: 0
+- tapOn:
+    text: "Okay, got it!"
+    index: 0
+- assertVisible: "Namecheap"  #merchant name
+
+#HM_Shop Online_UT009
+- assertVisible: "Double your miles"
+- assertVisible:
+      text: "Earn Max Miles"
+      index: 0
+- assertVisible: "Up to + 26 MPD"
+- assertVisible: "Total rewards"
+- assertVisible: "26 MPD"
+
+#HM_Shop Online_UT010
+
+- scrollUntilVisible:
+      direction: DOWN
+      element:
+          text: "Terms & Conditions"
+      speed: 50
+      timeout: 10000
+- assertVisible: "Terms & Conditions"
+- assertVisible: "Shop via HeyMax only"
+- assertVisible: "Avoid clicking external links before checkout. Max Miles cannot be earned in conjunction with other rewards programs."
+- assertVisible: "Avoid ad-blockers or extensions"
+- assertVisible: "Turn off ad blockers and other extensions when you shop."
+- assertVisible: "Use promo codes featured on HeyMax only"
+- assertVisible: "Purchases using promo codes from external sources may be rejected by our partner."
+- assertVisible: "Excludes taxes, fees, service charges, store credits & gift cards"
+- assertVisible: "Only the base purchase amount qualifies for earning Max Miles."
+
+#HM_Shop Online_UT011
+- scrollUntilVisible:
+      direction: DOWN
+      element:
+          text: "Earning Timeline"
+      speed: 50
+      timeout: 10000
+- assertVisible: "Earning Timeline"
+- assertVisible: "Purchase"
+- assertVisible: "Today"
+- assertVisible: "Tracked"
+- assertVisible: "In 2 days"
+- assertVisible: "Redeemable"
+- assertVisible: "In 90 days"
+
+#HM_Shop Online_UT012
+- assertVisible: "Owned cards first"
+- tapOn:
+      point: "10%,87%" #click the owned card filter
+- back
+
+#HM_Shop Online_UT013
+- tapOn: "Namecheap, 26/SGD, "
+- scrollUntilVisible:
+      direction: DOWN
+      element:
+          text: "I own this"
+      speed: 50
+      timeout: 10000
+- assertVisible: "I own this"
+- tapOn: "I own this"
+- assertVisible: "Owned"
+
+
+#HM_Shop Online_UT014
+- assertVisible: "Show more cards"
+- tapOn: "Show more cards"
+- back
+- back
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+- pressKey: HOME
+
+#HM_Shop Online_UT015
+#cant able to see the show less cards button
+
+
+
+
+
+
+
+
+
+
+
+
+
+

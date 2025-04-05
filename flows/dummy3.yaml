@@ -1,0 +1,44 @@
+appId: com.heymax.app
+---
+
+#HM_Shop Online_E2ETC001
+- tapOn: "HeyMax"
+- tapOn:
+    point: "78%,22%" #clicking the share option
+- assertVisible: "WhatsApp"
+- assertVisible: "Telegram"
+- assertVisible: "Facebook"
+- assertVisible: "LinkedIn"
+- assertVisible: "Twitter"
+- assertVisible: "Gmail"
+- assertVisible: "Reddit"
+- tapOn: "Copy link to share"
+- tapOn: "WhatsApp"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- back
+- tapOn:
+    point: "78%,22%" #clicking the share option
+- tapOn: "Telegram"
+- waitForAnimationToEnd
+- back
+- tapOn: "Facebook"
+- waitForAnimationToEnd
+- back
+- tapOn: "LinkedIn"
+- waitForAnimationToEnd
+- back
+- tapOn: "Twitter"
+- waitForAnimationToEnd
+- back
+- tapOn: "Gmail"
+- waitForAnimationToEnd
+- back
+- tapOn: "Reddit"
+- waitForAnimationToEnd
+- back
+
+
+

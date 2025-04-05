@@ -1,0 +1,268 @@
+# BookTravelUT_Native Script for Android
+
+appId: com.heymax.app
+---
+
+# HM_Book Travel_UT001
+- tapOn: "HeyMax"
+- tapOn: "Log In"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala02aadhikesavan@gmail.com"
+- assertVisible: "bala02aadhikesavan@gmail.com"
+- tapOn: "Password"
+- longPressOn: "Password"
+- eraseText
+- inputText: "bala02aadhi@18"
+- tapOn: "Log In"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,50%"  # Clicking the login button again
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+- waitForAnimationToEnd
+- assertVisible: "Book\ntravel"
+- tapOn: "Book\ntravel"
+- assertVisible: "Earn Max Miles"
+
+# HM_Book Travel_UT002
+- assertVisible: "Search merchants"
+- assertVisible: "󰈳"
+- assertVisible: "Shop online"
+- assertVisible: "Deals"
+- assertVisible: "Book travel"
+- assertVisible: "Order food"
+- assertVisible: "Dine out"
+- assertVisible: "Book a ride"
+- assertVisible: "Apply for card"
+- assertVisible: "Get insured"
+- tapOn: "Search merchants"
+- inputText: "Agoda"
+#- assertVisible: "Agoda, 3.2/SGD, Upsized, "
+- longPressOn: "Search merchants"
+- eraseText
+
+# HM_Book Travel_UT003
+- doubleTapOn:
+    point: "92%,16%" #tap on filter
+- assertVisible: "Filter and Sort"
+- assertVisible: "FILTER MERCHANTS"
+- assertVisible: "All merchants"
+- assertVisible: "Merchants with shop"
+- assertVisible: "Merchants with vouchers"
+- assertVisible: "SORT BY"
+- assertVisible: ", Popularity"
+- assertVisible: "Reward (High to Low)"
+- assertVisible: "Merchant Name (A - Z)"
+- assertVisible: "Apply"
+
+
+# HM_Book Travel_UT004
+- tapOn: "Reward (High to Low)"
+- tapOn: "Apply"
+- doubleTapOn:
+    point: "92%,16%"
+- tapOn: "Merchant Name (A - Z)"
+- tapOn: "Apply"
+- doubleTapOn:
+    point: "92%,16%"
+- tapOn: "Merchants with shop"
+- tapOn: "Popularity"
+- tapOn: "Apply"
+- doubleTapOn:
+    point: "92%,16%"
+- tapOn: "Reward (High to Low)"
+- tapOn: "Apply"
+- doubleTapOn:
+    point: "92%,16%"
+- tapOn: "Merchant Name (A - Z)"
+- tapOn: "Apply"
+- doubleTapOn:
+    point: "92%,16%"
+- tapOn: "Merchants with vouchers"
+- tapOn: "Popularity"
+- tapOn: "Apply"
+- doubleTapOn:
+    point: "92%,16%"
+- tapOn: "Reward (High to Low)"
+- tapOn: "Apply"
+- doubleTapOn:
+    point: "92%,16%"
+- tapOn: "Merchant Name (A - Z)"
+- tapOn: "Apply"
+- doubleTapOn:
+    point: "92%,16%"
+- tapOn: "All merchants"
+- tapOn: "Popularity"
+- tapOn: "Apply"
+
+#HM_Book Travel_UT007
+- tapOn: "Search merchants"
+- inputText: "Agoda"
+- assertVisible: "Agoda, 3.2/SGD, Upsized, "
+- doubleTapOn: "Agoda, 3.2/SGD, Upsized, "
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- tapOn: "Shop with Max"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+#HM_Book Travel_UT008
+- tapOn: "Avoid missing out on Max Miles"
+- assertVisible: "Terms & Conditions"
+- swipe:
+    direction: "up"
+- assertVisible: "Okay, got it!"
+- assertVisible:
+    text: "Shop via HeyMax only"
+    index: 0
+- assertVisible:
+    text: "Avoid clicking external links before checkout. Max Miles cannot be earned in conjunction with other rewards programs."
+    index: 0
+- assertVisible:
+    text: "Avoid ad-blockers or extensions"
+    index: 0
+- assertVisible:
+    text: "Turn off ad blockers and other extensions when you shop."
+    index: 0
+- assertVisible:
+    text: "Use promo codes featured on HeyMax only"
+    index: 0
+- assertVisible:
+    text: "Purchases using promo codes from external sources may be rejected by our partner."
+    index: 0
+- assertVisible:
+    text: "Excludes taxes, fees, service charges, store credits & gift cards"
+    index: 0
+- assertVisible:
+    text: "Only the base purchase amount qualifies for earning Max Miles."
+    index: 0
+- tapOn: "Okay, got it!"
+- assertVisible: "Agoda"
+
+# HM_Book Travel_UT006
+- swipe:
+    direction: "up"
+- tapOn: "Shop"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+# HM_Shop Online_UT010
+- assertVisible:
+    text: "Earn Max Miles"
+    index: 2
+- assertVisible: "Hotels & home booking, Private stays booking, Long stays booking (Max Miles awarded for Fare component only)"
+- assertVisible: "Other purchases, e.g. Flights"
+- assertVisible: "Terms & Conditions"
+- swipe:
+    direction: "up"
+- assertVisible: "Shop via HeyMax only"
+- assertVisible: "Avoid clicking external links before checkout. Max Miles cannot be earned in conjunction with other rewards programs."
+- assertVisible: "Avoid ad-blockers or extensions"
+- assertVisible: "Turn off ad blockers and other extensions when you shop."
+- assertVisible: "Use promo codes featured on HeyMax only"
+- assertVisible: "Purchases using promo codes from external sources may be rejected by our partner."
+
+# HM_Shop Online_UT011
+- assertVisible: "Earning Timeline"
+- assertVisible: "Purchase"
+- assertVisible: "Today"
+- assertVisible: "Tracked"
+- assertVisible: "In 2 days"
+- assertVisible: "Redeemable"
+- assertVisible: "In 90 days"
+
+# HM_Book Travel_UT012
+- swipe:
+    direction: "up"
+- swipe:
+    direction: "up"
+- assertVisible: "Owned cards first"
+- tapOn:
+    point: "10%,87%" #clicking the filter option
+- assertVisible: "Card type"
+- assertVisible: "Banks"
+- swipe:
+    direction: "up"
+- tapOn: "See result"
+
+# HM_Book Travel_UT013
+- tapOn:
+    point: "88%,57%"
+
+- tapOn: "I own this"
+- tapOn: "Apply"
+- repeat:
+    times: 5
+    commands:
+      - waitForAnimationToEnd
+- repeat:
+    times: 2
+    commands:
+      - back
+
+- tapOn: "View my, Cards"
+- waitForAnimationToEnd
+- assertVisible: "OCBC Frank Credit Card"
+- tapOn:
+    point: "90%,32%"
+- tapOn: "Remove Card"
+- tapOn: "Remove"
+- back
+
+# HM_Book Travel_UT014
+- tapOn: "Book\ntravel"
+- tapOn: "Search merchants"
+- inputText: "Agoda"
+- doubleTapOn:
+    text: "Agoda, 3.2/SGD, Upsized, "
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Show more cards"
+    timeout: 10000
+- tapOn: "Show more cards"
+
+#HM_Book Travel_UT015
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text:  "Show less cards"
+    timeout: 10000
+- assertVisible:  "Show less cards"
+- tapOn: "Show less cards"
+- back
+- doubleTapOn:
+    text: "Agoda, 3.2/SGD, Upsized, "
+- waitForAnimationToEnd
+
+#HM_Shop Online_UT009
+- assertVisible: "Double your miles"
+- assertVisible:
+    text: "Earn Max Miles"
+    index: 0
+- assertVisible: "Total rewards"
+
+#HM_Book Travel_UT005
+- assertVisible:
+    text: "merchant"
+    index: 0   #merchant logo
+- assertVisible: "Agoda" #merchant name
+

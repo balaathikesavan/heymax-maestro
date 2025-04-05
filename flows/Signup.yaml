@@ -1,0 +1,52 @@
+#SingupUT_native script for Android
+appId: com.heymax.app
+---
+#HM_Sign Up_UT001
+- tapOn: "HeyMax"
+- assertVisible: "Sign Up"
+
+- assertVisible: "Log In"
+- assertVisible: "Sign Up"
+- assertVisible: "Email"
+- assertVisible: "Password"
+- assertVisible: "Confirm Password"
+- assertVisible: "Sign Up"
+- assertVisible: "Google"
+- assertVisible: "Apple"
+- assertVisible: "Terms of Service"
+- assertVisible: "Privacy Policy"
+
+#HM_Sign Up_UT002
+- tapOn: "Sign Up"
+- tapOn: "Email"
+- tapOn: "Password"
+- tapOn: "Confirm Password"
+- tapOn: "Sign Up"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,56%"
+- tapOn: "Google"
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+- tapOn: "Apple"
+- tapOn: "Terms of Service"
+- back
+- tapOn: "Privacy Policy"
+- back
+- pressKey: HOME

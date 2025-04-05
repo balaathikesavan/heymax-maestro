@@ -1,0 +1,33 @@
+appId: com.max.heymax
+
+---
+# Login Page Object Model in Maestro
+
+# Launch the application
+- tapOn: "HeyMax"
+
+# Wait for the "Log in" button and tap
+- extendedWaitUntil:
+    visible: "Log in"
+- tapOn: "Log in"
+
+# Wait for "Email address" field and input text
+- extendedWaitUntil:
+    visible: "Email address"
+- tapOn: "Email address"
+- inputText: "${EMAIL}"
+- hideKeyboard
+
+# Wait for "Password" field and input text
+- extendedWaitUntil:
+    visible: "Password"
+- tapOn: "Password"
+- inputText: "${PASSWORD}"
+- hideKeyboard
+
+# Wait for "Log in" button and tap
+- extendedWaitUntil:
+    visible: "Log in"
+- tapOn:
+    text: "Log in"
+    index: 1  # Ensure correct index if multiple "Log in" buttons exist

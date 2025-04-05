@@ -1,0 +1,25 @@
+appId: com.max.heymax
+---
+- tapOn: "HeyMax"
+- waitForAnimationToEnd
+- tapOn: "Shop with HeyMax "
+- assertVisible: "All Merchants"
+
+- repeat:
+    while:
+      notVisible: "Home & Lifestyle"
+    commands:
+      - swipe:
+          start: "90%,27%"
+          end: "55%,27%"
+
+- tapOn: "Home & Lifestyle"
+- repeat:
+    while:
+      notVisible: "others"
+    commands:
+      - swipe:
+          start: "90%,27%"
+          end: "55%,27%"
+
+- tapOn: "others"

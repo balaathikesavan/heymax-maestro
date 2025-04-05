@@ -1,0 +1,7 @@
+appId: com.heymax.app
+
+---
+- runFlow:
+    file: ../flows/dummy2.yaml
+- runFlow:
+    file: ../flows/LoginE2E.yaml

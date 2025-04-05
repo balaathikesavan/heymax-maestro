@@ -1,0 +1,18 @@
+appId: com.max.heymax
+
+---
+- tapOn: "HeyMax"
+- tapOn: "Buy vouchers"
+- tapOn: "merchant Fairprice In-store Gift Cards Up to 0.25 Max Miles per $1"
+
+# Wait for "Max Miles Earned" to be visible
+- extendedWaitUntil:
+    visible: "Max Miles Earned"
+
+# Capture the dynamically updated "Max Miles Earned" value
+- storeText:
+    from: "Max Miles Earned"
+    to: miles_value
+
+# Print the captured value in logs
+- print: "Dynamic Max Miles Earned: {{miles_value}}"

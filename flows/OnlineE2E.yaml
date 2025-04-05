@@ -1,0 +1,180 @@
+# SoponlineE2E_Native script for Android
+
+appId: com.heymax.app
+---
+
+#HM_Shop Online_E2ETC001
+- tapOn: "HeyMax"
+- tapOn: "Log In"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala02aadhikesavan@gmail.com"
+- assertVisible: "bala02aadhikesavan@gmail.com"
+- tapOn: "Password"
+- longPressOn: "Password"
+- eraseText
+- inputText: "bala02aadhi@18"
+- tapOn: "Log In"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,50%"  #clicking the login button again
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+- repeat:
+    times: 2
+    commands:
+      - waitForAnimationToEnd
+- tapOn: "Shop Online"
+- inputText: "Ama" #partial merchant name
+- waitForAnimationToEnd
+- assertVisible: "Amazin' Graze, 0/SGD"
+- assertVisible: "Amazon, 4/SGD, , 󰔘"
+- longPressOn: "Search merchants"
+- eraseText
+- inputText: "xyz" #invalid shop name
+- waitForAnimationToEnd
+- assertVisible: "No results found in \"Shop online\""
+- longPressOn: "Search merchants"
+- eraseText
+- inputText: "@#1234!" #Random strings
+- waitForAnimationToEnd
+- assertVisible: "No results found in \"Shop online\""
+- longPressOn: "Search merchants"
+- eraseText
+#after putting empty search bar validating the default merchant
+- assertVisible: "Apple, 0.5/SGD, , 󰔘"
+- tapOn: "Search merchants"
+- inputText: "Amazon" #seaching for merchant
+- assertVisible: "Amazon, 4/SGD, , 󰔘"
+
+#HM_Shop Online_E2ETC002
+- tapOn: "Amazon, 4/SGD, , 󰔘"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+
+#HM_Shop Online_E2ETC003
+- tapOn:
+    point: "78%,22%" #clicking the share option
+- assertVisible: "WhatsApp"
+- assertVisible: "Telegram"
+- assertVisible: "Facebook"
+- assertVisible: "LinkedIn"
+- assertVisible: "Twitter"
+- assertVisible: "Gmail"
+- assertVisible: "Reddit"
+- tapOn: "Copy link to share"
+- tapOn: "WhatsApp"
+- waitForAnimationToEnd
+- back
+- tapOn: "Telegram"
+- waitForAnimationToEnd
+- back
+- tapOn: "Facebook"
+- waitForAnimationToEnd
+- back
+- tapOn: "LinkedIn"
+- waitForAnimationToEnd
+- back
+- tapOn: "Twitter"
+- waitForAnimationToEnd
+- back
+- tapOn: "Gmail"
+- waitForAnimationToEnd
+- back
+- tapOn: "Reddit"
+- waitForAnimationToEnd
+- back
+- tapOn: "Amazon"
+
+#HM_Shop Online_E2ETC005
+- tapOn:
+    point: "88%,22%"
+- assertVisible: "More about Amazon"
+- assertVisible: "Store name:"
+- assertVisible:
+    text: "Amazon"
+    index: 1
+- assertVisible: "Address:"
+- assertVisible: "Phone numbers:"
+- tapOn: "Search merchant"
+
+#HM_Shop Online_E2ETC004
+- tapOn:
+    point: "69%,22%"
+- assertVisible: "Amazon is saved to your collection."
+- assertVisible: "Your saved merchants can be found via your profile."
+- tapOn: "Amazon"
+- tapOn:
+    point: "69%,22%"
+- assertVisible: "Amazon is removed from your collection."
+- assertVisible: "Your saved merchants can be found via your profile."  #bug
+- tapOn: "Amazon"
+- tapOn:
+    point: "69%,22%"
+- back
+- back
+- tapOn:
+    point: "91%,24%" #like option near search bar in homr screen
+- assertVisible: "Amazon, 4/SGD"
+- back
+- tapOn: "Shop Online"
+- tapOn: "Search merchants"
+- inputText: "Amazon" #seaching for merchant
+- tapOn: "Amazon, 4/SGD, , 󰔘"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- tapOn:
+    point: "69%,22%"
+- back
+- back
+- tapOn:
+    point: "91%,24%" #like option near search bar in homr screen
+- assertVisible: "No Favourites"
+- assertVisible: "Save your go-to brands for quick access and never miss out on miles. Tap the ❤️ to start building your list!"
+- back
+
+#HM_Shop Online_E2ETC006
+- tapOn: "Shop Online"
+- tapOn: "Search merchants"
+- inputText: "Amazon" #seaching for merchant
+- tapOn: "Amazon, 4/SGD, , 󰔘"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- swipe:
+    direction: "up"
+- assertVisible: "You might also like"
+- repeat:
+    while:
+      notVisible: "Lazada"
+    commands:
+      - swipe:
+          start: "90%,27%"
+          end: "55%,27%"
+- repeat:
+    while:
+      notVisible: "Apple"
+    commands:
+      - swipe:
+          "Apple"
+- tapOn:
+    text: "Apple"
+    index: 0
+- assertVisible:
+    text: "Apple"
+    index: 0
+- back

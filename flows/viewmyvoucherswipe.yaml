@@ -1,0 +1,21 @@
+appId: com.max.heymax
+---
+- tapOn: "HeyMax"
+- waitForAnimationToEnd
+- tapOn: "View my vouchers "
+- tapOn: "You don't have any vouchers yet. Start shopping!Shop Vouchers"
+- repeat:
+    while:
+      notVisible: "Beauty"
+    commands:
+      - swipe:
+          start: "90%,27%"
+          end: "55%,27%"
+- repeat:
+    while:
+      notVisible: "Financial Services"
+    commands:
+      - swipe:
+          start: "90%,27%"
+          end: "55%,27%"
+- tapOn: "Financial Services"

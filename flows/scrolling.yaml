@@ -1,0 +1,23 @@
+appId: com.max.heymax
+
+---
+- tapOn: "HeyMax"
+- waitForAnimationToEnd
+- tapOn: "Shop with HeyMax "
+- assertVisible: "All Merchants"
+
+- repeat:
+    while:
+      notVisible: "Vans"
+    commands:
+      - swipe:
+          direction: UP
+      - swipe:
+          direction: UP
+      - swipe:
+          direction: UP
+
+- assertVisible: "Vans"
+- assertVisible: "4.8 Max Miles"
+- assertVisible: "Until 30 Mar 2025"
+- tapOn: "Vans"

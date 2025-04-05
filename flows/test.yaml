@@ -1,0 +1,37 @@
+appId: com.max.heymax
+
+---
+- launchApp
+
+# Ensure "Log in" button is visible before tapping
+- extendedWaitUntil:
+    visible: "Log in"
+
+- tapOn: "Log in"
+
+# Ensure "Email address" field is visible before tapping
+- extendedWaitUntil:
+    visible: "Email address"
+
+- tapOn: "Email address"
+- inputText: "sowmiya@qaoncloud.com"  # Add valid email input
+- hideKeyboard
+
+# Ensure "Password" field is visible before tapping
+- extendedWaitUntil:
+    visible: "Password"
+
+- tapOn: "Password"
+- inputText: "sowmiya23"
+  # Add valid password input
+- hideKeyboard
+
+# Ensure "Log in" button is visible before tapping
+- extendedWaitUntil:
+    visible: "Log in"
+
+- tapOn:
+    text: "Log in"
+    index: 1  # Ensure correct index if multiple "Log in" buttons exist
+
+

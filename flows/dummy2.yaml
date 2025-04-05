@@ -1,0 +1,125 @@
+appId: com.heymax.app
+
+---
+- tapOn: "HeyMax"
+
+- waitForAnimationToEnd
+- tapOn:
+    point: "78%,22%" #tapping the share option
+- assertVisible: "WhatsApp"
+- assertVisible: "Telegram"
+- assertVisible: "Facebook"
+- assertVisible: "LinkedIn"
+- assertVisible: "Twitter"
+- assertVisible: "Gmail"
+- assertVisible: "Reddit"
+- tapOn: "Copy link to share"
+- tapOn: "WhatsApp"
+- waitForAnimationToEnd
+- back
+
+
+#HM_Dineout_E2ETC004
+- doubleTapOn:
+    point: "69%,22%" #tapping the like option
+- doubleTapOn:
+    point: "69%,22%" #tapping the like option
+- assertVisible: "Raffles Courtyard is saved to your collection."
+- assertVisible: "Your saved merchants can be found via your profile."
+- tapOn: "Raffles Courtyard"
+- doubleTapOn:
+    point: "69%,22%"
+- assertVisible: "Raffles Courtyard is removed from your collection."
+- assertVisible: "Your saved merchants can be found via your profile."
+- tapOn: "Raffles Courtyard"
+- doubleTapOn:
+    point: "69%,22%"
+- back
+- back
+- tapOn: ""
+- assertVisible: "Raffles Courtyard"
+- back
+- tapOn: "Dine\nout"
+- tapOn: "Search name or location"
+- inputText: "Raffles Courtyard"
+- doubleTapOn: "Raffles Courtyard"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- doubleTapOn:
+    point: "69%,22%"
+- back
+- back
+- tapOn: ""
+- assertVisible: "No Favourites"
+- tapOn: "Dine\nout"
+- tapOn: "Search name or location"
+- inputText: "Raffles Courtyard"
+- doubleTapOn: "Raffles Courtyard"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+
+#HM_Dineout_E2ETC005
+- tapOn:
+    point: "88%,22%" #three dot
+- assertVisible: "More about Raffles Courtyard"
+- assertVisible: "Store name:"
+- assertVisible:
+    text: "Raffles Courtyard"
+    index: 1
+- assertVisible: "Address:"
+- assertVisible: "Phone numbers:"
+- tapOn:
+    text: "Raffles Courtyard"
+    index: 0
+
+#HM_Dineout_E2ETC006
+
+- assertVisible: "Double your miles"
+- assertVisible:
+    text: "Make a reservation on Chope"
+    index: 0
+- assertVisible: "Choose best card to use at the restaurant"
+- assertVisible: "View Map"
+- assertVisible: "Photos"
+- swipe:
+    direction: "up"
+- assertVisible: "Cuisine"
+- runFlow:
+    when:
+      visible: "Open Now"
+    commands:
+      - assertVisible: "Open Now"
+- tapOn: "View Map"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- back
+- back
+- back
+
+#HM_Dineout_E2ETC007
+- swipe:
+    direction: "up"
+- assertVisible: "You might also like"
+- repeat:
+    while:
+      notVisible: "Hopscotch (Capitol)"
+    commands:
+      - swipe:
+          start: "90%,27%"
+          end: "55%,27%"
+- swipe:
+    start: "90%,27%"
+    end: "55%,27%"
+- runFlow:
+    when:
+      visible: "Deli Belly"
+    commands:
+      - tapOn: "Deli Belly"
+      - back
+

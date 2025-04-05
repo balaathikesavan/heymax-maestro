@@ -1,0 +1,23 @@
+appId: com.heymax.app
+
+---
+- tapOn: "HeyMax"
+
+- swipe:
+    direction: "up"
+- swipe:
+    direction: "up"
+- assertVisible: "You might also like"
+- repeat:
+    while:
+      notVisible: "Hopscotch (Capitol)"
+    commands:
+      - swipe:
+          direction: LEFT  # Swipes left
+
+- repeat:
+    while:
+      notVisible: "TEST RESTAURANT"
+    commands:
+      - swipe:
+          direction: RIGHT  # Swipes right

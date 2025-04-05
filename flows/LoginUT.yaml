@@ -1,0 +1,50 @@
+#HM_Login_UT001
+appId: com.heymax.app
+---
+- tapOn: "HeyMax"
+- assertVisible: "Log In"
+- assertVisible: "Sign Up"
+- tapOn: "Log In"
+- assertVisible: "Log In"
+- assertVisible: "Log In"
+- assertVisible: "Email"
+- assertVisible: "Password"
+- assertVisible: "Log In"
+- assertVisible: "Forgot password?"
+- assertVisible: "Or continue with"
+- assertVisible: "Google"
+- assertVisible: ", Apple"
+- assertVisible: "By logging in, you acknowledge and agree to Max (heymax.ai)'s Terms of Service and Privacy Policy"
+
+- tapOn: "Email"
+- tapOn: "Password"
+- tapOn: "Log In"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,50%"
+- tapOn: "Forgot password?"
+- tapOn: "Google"
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"
+- tapOn: "Apple"
+- tapOn: "Terms of Service"
+- back
+- tapOn: "Privacy Policy"
+- back
+- pressKey: HOME

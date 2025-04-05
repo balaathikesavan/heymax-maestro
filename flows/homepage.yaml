@@ -1,0 +1,50 @@
+appId: com.max.heymax
+
+---
+- tapOn: "HeyMax"
+- tapOn: "Dine out"
+- extendedWaitUntil:
+        visible: "Bar"
+- tapOn: "Bar"
+- tapOn: "Search a restaurant, location or cuisine"
+- hideKeyboard
+- extendedWaitUntil:
+      visible: "Bar"
+- assertVisible: "Bar"
+- tapOn:
+        text: "chope restaurant"
+        index: 0
+- tapOn:
+        point: "69%,26%" #saving the collection
+- tapOn:
+        point: "69%,26%" #again clicking the collection
+- tapOn:
+        text: "Make a reservation on Chope" #make a reservation
+        index: 1
+- tapOn:
+    point: "50%,39%" #click the adults dropdown
+- tapOn:
+    point: "50%,44%" #select the 1 adult option
+- tapOn:
+    point: "50%,39%" #close the dropdown
+- tapOn:
+    point: "13%,88%" #click the terms and condition check box
+- tapOn: "Next"
+- tapOn:
+    point: "33%,66%" #click the mr dropdown
+- tapOn: "Ms." #select the ms option from that drop down
+- tapOn:
+    point: "33%,66%" #click the mr dropdown
+- tapOn: "First Name"
+- inputText: "Bala"
+- tapOn: "Surname"
+- inputText: "A"
+- tapOn: "Email Address"
+- inputText: "bala02aadhikesavan@gmail.com"
+- tapOn: "Phone Number"
+- inputText: "9123 4567"
+- tapOn: "I acknowledge that the reservation time will be limited to 2 hours for this booking."
+
+
+
+

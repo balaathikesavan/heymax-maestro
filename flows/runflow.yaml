@@ -1,0 +1,4 @@
+appId: com.max.heymax
+---
+- runFlow: viewmyvoucherswipe.yaml
+

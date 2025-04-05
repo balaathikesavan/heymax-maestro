@@ -1,0 +1,73 @@
+#SignupE2E_native script for Android
+
+appId: com.heymax.app
+---
+
+# HM_Sign up_E2ETC001
+- tapOn: "HeyMax"
+- tapOn: "Sign Up"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala+00987@gmail.com"
+- assertVisible: "bala+00987@gmail.com"
+- tapOn: "Password"
+- eraseText
+- inputText: "balaadhi87690"
+- tapOn: "Confirm Password"
+- eraseText
+- inputText: "balaadhi87690"
+- waitForAnimationToEnd
+- tapOn: "Sign Up"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,56%"
+- runFlow:
+    when:
+      visible: "Save"
+    commands:
+      - tapOn: "Save"
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "See how it works"
+    commands:
+      - tapOn: "See how it works"
+- assertVisible: "Shop your favourite brands, earn miles"
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Get Started, "
+    commands:
+      - tapOn: "Get Started, "
+- runFlow:
+    when:
+      visible: "Get Started"
+    commands:
+      - tapOn: "Get Started"
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+
+# Logging out the application
+- tapOn: ""
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Log out"
+    speed: 50
+    timeout: 10000
+- tapOn: "Log out"
+- runFlow:
+    when:
+      visible: "Log Out"
+    commands:
+      - tapOn: "Log Out"

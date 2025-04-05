@@ -1,0 +1,96 @@
+appId: com.heymax.app
+---
+# **Scenario 1: Sign Up with a New Email**
+- tapOn: "HeyMax"
+- tapOn: "Sign Up"
+- tapOn: "Email"
+- eraseText
+- inputText:
+      text: "balapreethi2006@gmail.com"
+- tapOn: "Password"
+- eraseText
+- inputText:
+- inputText:
+      text: "balapreethi"
+- tapOn: "Confirm Password"
+- eraseText
+- inputText:
+      text: "balapreethi"
+- longPressOn: "Sign Up"
+
+
+- tapOn: "See how it works Next"
+- tapOn: "Next"
+- tapOn: "Get started Next"
+- tapOn: "Proceed to Singapore Site"
+
+- assertVisible:
+      id: "best_mpd"
+
+- runFlow:
+      file: ../pages/logout.yaml
+
+- pressKey: HOME
+- waitForAnimationToEnd
+
+- tapOn: "HeyMax"
+- tapOn: "Sign up"
+
+- tapOn:
+      id: "email"
+- eraseText
+- inputText:
+      text: "balapreethi2002@gmail.com"
+
+- tapOn:
+      id: "password"
+- eraseText
+- inputText:
+      text: "user@123"
+
+- tapOn:
+      id: "passwordConfirm"
+- eraseText
+- inputText:
+      text: "user@123"
+
+- tapOn: "Sign Up"
+
+- assertVisible:
+      text: "Sign Up Failed, try Again"
+
+- pressKey: HOME
+- waitForAnimationToEnd
+
+- tapOn: "HeyMax"
+- tapOn: "Sign up"
+
+- tapOn:
+        id: "email"
+- eraseText
+- inputText:
+        text: "balapreethi2002@gmail.com"
+
+- tapOn:
+        id: "password"
+- eraseText
+- inputText:
+        text: "user@123"
+
+- tapOn:
+        id: "passwordConfirm"
+- eraseText
+- inputText:
+        text: "user@1234"
+- tapOn: "Sign Up"
+
+- assertVisible: "Please enter the same Password"
+- pressKey: HOME
+- waitForAnimationToEnd
+
+- tapOn: "HeyMax"
+- tapOn: "Sign up"
+- assertVisible:
+    text: "Sign Up"
+    enabled: false
+

@@ -1,0 +1,11 @@
+appId: com.max.heymax
+
+---
+# Run the Login Flow from POM file
+- runFlow:
+    file: ../pages/pom.yaml
+    env:
+      EMAIL: "sowmiya@qaoncloud.com"
+      PASSWORD: "sowmiya23"
+- runFlow:
+    file: ../pages/logout.yaml

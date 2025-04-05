@@ -1,0 +1,108 @@
+appId: com.heymax.app
+---
+
+# HM_Book Travel_UT001
+- tapOn: "HeyMax"
+- tapOn: "Book\ntravel"
+- assertVisible: "Earn Max Miles"
+- tapOn: "Search merchants"
+- inputText: "Agoda"
+- assertVisible: "Agoda, 3.2/SGD, Upsized, "
+- doubleTapOn: "Agoda, 3.2/SGD, Upsized, "
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+
+
+# HM_Book Travel_UT007
+#- assertVisible: "Shop with Max"
+- tapOn: "Shop with Max"
+- back
+
+# HM_Book Travel_UT008
+- tapOn: "Avoid missing out on Max Miles"
+- assertVisible: "Terms & Conditions"
+- swipe:
+    direction: "up"
+- assertVisible: "Okay, got it!"
+- assertVisible:
+    text: "Shop via HeyMax only"
+    index: 0
+- assertVisible:
+    text: "Avoid clicking external links before checkout. Max Miles cannot be earned in conjunction with other rewards programs."
+    index: 0
+- assertVisible:
+    text: "Avoid ad-blockers or extensions"
+    index: 0
+- assertVisible:
+    text: "Turn off ad blockers and other extensions when you shop."
+    index: 0
+- assertVisible:
+    text: "Use promo codes featured on HeyMax only"
+    index: 0
+- assertVisible:
+    text: "Purchases using promo codes from external sources may be rejected by our partner."
+    index: 0
+- assertVisible:
+    text: "Excludes taxes, fees, service charges, store credits & gift cards"
+    index: 0
+- assertVisible:
+    text: "Only the base purchase amount qualifies for earning Max Miles."
+    index: 0
+    #- tapOn:
+    #text: "Okay, got it!"
+    # index: 0
+- tapOn: "Okay, got it!"
+- assertVisible: "Agoda"
+
+# HM_Shop Online_UT010
+- repeat:
+    times: 1
+    commands:
+      - swipe:
+          direction: "up"
+- assertVisible:
+    text: "Earn Max Miles"
+    index: 2
+- assertVisible: "Hotels & home booking, Private stays booking, Long stays booking (Max Miles awarded for Fare component only)"
+
+- assertVisible: "Other purchases, e.g. Flights"
+- repeat:
+    times: 2
+    commands:
+      - swipe:
+          direction: "down"
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text: "Terms & Conditions"
+    timeout: 10000
+- assertVisible: "Excludes taxes, fees, service charges, store credits & gift cards"
+- assertVisible: "Terms & Conditions"
+- assertVisible: "Shop via HeyMax only"
+- assertVisible: "Avoid clicking external links before checkout. Max Miles cannot be earned in conjunction with other rewards programs."
+- assertVisible: "Avoid ad-blockers or extensions"
+- assertVisible: "Turn off ad blockers and other extensions when you shop."
+- assertVisible: "Use promo codes featured on HeyMax only"
+- assertVisible: "Purchases using promo codes from external sources may be rejected by our partner."
+- repeat:
+    times: 1
+    commands:
+      - swipe:
+          direction: "up"
+# HM_Book Travel_UT006
+- swipe:
+    direction: "up"
+- waitForAnimationToEnd
+- swipe:
+    direction: "up"
+#- assertVisible: "Shop"
+- tapOn: "Shop"
+- repeat:
+    times: 5
+    commands:
+      - waitForAnimationToEnd
+- assertVisible: "Get the best deals and extras on travel worldwide with Agoda"
+- back
+- waitForAnimationToEnd

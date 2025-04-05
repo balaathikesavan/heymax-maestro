@@ -1,0 +1,23 @@
+name: Maestro Cloud Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  run-maestro-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 📦 Set up Maestro CLI
+        uses: mobile-dev-inc/action-maestro-cloud@v1
+
+      - name: 🚀 Run Maestro tests on Cloud
+        env:
+          MAESTRO_CLOUD_API_KEY: ${{ secrets.MAESTRO_CLOUD_API_KEY }}
+        run: maestro cloud test --app app/heymax.apk --path flows

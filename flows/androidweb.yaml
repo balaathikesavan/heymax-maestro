@@ -1,0 +1,58 @@
+appId: "${env.platform == 'android' ? 'com.max.heymax' : 'com.android.chrome'}"
+---
+# 🌍 If Web, open HeyMax website in Chrome
+- evaluateScript:
+    script: |
+      return process.env.platform === 'web';
+    saveAs: "isWeb"
+
+- runFlow:
+    when: "${isWeb}"
+    commands:
+      - launchApp
+      - extendedWaitUntil:
+          visible: "Search or type URL"
+      - tapOn: "Search or type URL"
+      - inputText: "https://heymax.ai"
+      - tapOn: "Go"
+      - extendedWaitUntil:
+          visible: "Continue in Chrome"
+      - tapOn: "Continue in Chrome"
+
+# 📱 If Android, launch HeyMax App
+- runFlow:
+    when: "${!isWeb}"
+    commands:
+      - launchApp
+
+# 📌 Handle Login Differences for Web & Android
+- runFlow:
+    when: "${!isWeb}"  # Android
+    commands:
+      - extendedWaitUntil:
+          visible: "Login"
+      - tapOn: "Login"
+
+- runFlow:
+    when: "${isWeb}"  # Web
+    commands:
+      - extendedWaitUntil:
+          visible: "⋮"   # 3-dot menu
+      - tapOn: "⋮"
+      - extendedWaitUntil:
+          visible: "Login"
+      - tapOn: "Login"
+
+# 📌 Enter Login Details (Common for Both Platforms)
+- extendedWaitUntil:
+    visible: "Email"
+- tapOn: "Email"
+- inputText: "bala02aadhikesavan@gmail.com"
+- tapOn: "Password"
+- inputText: "YourSecurePassword"
+- tapOn: "Sign In"
+
+# 📌 Continue with Common Test Steps
+- extendedWaitUntil:
+    visible: "Bar"
+- tapOn: "Bar"

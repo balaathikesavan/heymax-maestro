@@ -1,0 +1,357 @@
+
+appId: com.heymax.app
+
+---
+
+# HM_Book Travel_UT001
+
+- tapOn: "HeyMax"
+- tapOn: "Log In"
+- tapOn: "Email"
+- longPressOn: "Email"
+- eraseText
+- inputText: "bala02aadhikesavan@gmail.com"
+- assertVisible: "bala02aadhikesavan@gmail.com"
+- tapOn: "Password"
+- longPressOn: "Password"
+- eraseText
+- inputText: "bala02aadhi@18"
+- tapOn: "Log In"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,50%"  # Clicking the login button again
+- runFlow:
+    when:
+      visible: "Proceed to Singapore Site"
+    commands:
+      - tapOn: "Proceed to Singapore Site"
+- runFlow:
+    when:
+      visible: "Maybe Later"
+    commands:
+      - tapOn: "Maybe Later"
+- waitForAnimationToEnd
+- assertVisible: "Dine\nout"
+- tapOn: "Dine\nout"
+- assertVisible: "Earn Max Miles"
+- tapOn: "Search name or location"
+- inputText: "Raffles Courtyard"
+- assertVisible: "Raffles Courtyard"
+- longPressOn: "Search name or location"
+- eraseText
+- tapOn: "Search name or location"
+- inputText: "Italian"
+- longPressOn: "Search name or location"
+- eraseText
+- tapOn: "Search name or location"
+- inputText: "Bar"
+- assertVisible: "The Backdrop"
+- longPressOn: "Search name or location"
+- eraseText
+- tapOn: "Search name or location"
+- inputText: "Raffles co"
+- assertVisible: "Raffles Courtyard"
+- longPressOn: "Search name or location"
+- eraseText
+- tapOn: "Search name or location"
+- inputText: "xyz"
+- assertVisible: "No results found in \"Restaurants\""
+- longPressOn: "Search name or location"
+- eraseText
+- tapOn: "Search name or location"
+- inputText: "@#!"
+- assertVisible: "No results found in \"Restaurants\""
+- longPressOn: "Search name or location"
+- eraseText
+- assertVisible: "PS Cafe"
+
+#HM_Dineout_E2ETC002
+- tapOn: "󰈳" #filter option near search bar on the dineout screen
+- assertVisible: "Search Cuisine"
+- assertVisible: "All-Day Breakfast"
+- tapOn: "Select All"
+- tapOn: "Clear All"
+- assertVisible: "American"
+- assertVisible: "Asian"
+- assertVisible: "Australian"
+- assertVisible:
+    text: "Bar"
+    index: 2
+- assertVisible: "BBQ"
+- assertVisible: "British"
+- assertVisible: "Bubble Tea"
+- assertVisible:
+    text: "Buffet"
+    index: 2
+- assertVisible: "Burgers"
+- assertVisible: "Cafe"
+- assertVisible: "Cajun"
+- assertVisible: "Caribbean"
+- assertVisible:
+    text: "Chinese"
+    index: 2
+- tapOn: "Search Cuisine"
+- inputText: "Bar"
+- longPressOn: "Search Cuisine"
+- eraseText
+- tapOn: "Search Cuisine"
+- inputText: "xyz"
+- longPressOn: "Search Cuisine"
+- eraseText
+- tapOn: "Apply"
+- tapOn: "󰈳"
+- tapOn: "Asian"
+- tapOn: "Apply"
+- tapOn: "󰈳"
+- tapOn: "Australian"
+- tapOn: "Apply"
+- tapOn: "󰈳"
+- tapOn: "Clear All"
+- scrollUntilVisible:
+    direction: DOWN
+    element:
+      text:  "Zi Char"
+    timeout: 10000
+- assertVisible:  "Zi Char"
+- tapOn: "Zi Char"
+- tapOn: "Search name or location" #come back to the screen without clicking the apply button
+
+#HM_Dineout_E2ETC003
+- tapOn: "Search name or location"
+- inputText: "Raffles Courtyard"
+- doubleTapOn: "Raffles Courtyard"
+- repeat:
+        times: 4
+        commands:
+          - waitForAnimationToEnd
+- tapOn:
+    point: "78%,22%" #tapping the share option
+- assertVisible: "WhatsApp"
+- assertVisible: "Telegram"
+- assertVisible: "Facebook"
+- assertVisible: "LinkedIn"
+- assertVisible: "Twitter"
+- assertVisible: "Gmail"
+- assertVisible: "Reddit"
+- tapOn: "Copy link to share"
+- tapOn: "WhatsApp"
+- waitForAnimationToEnd
+- back
+- back
+
+#HM_Dineout_E2ETC004
+- tapOn:
+    id: "filter-cardtype-miles" #tapping the likeoptions
+- assertVisible: "Raffles Courtyard is saved to your collection."
+- assertVisible: "Your saved merchants can be found via your profile."
+- tapOn: "Raffles Courtyard"
+- tapOn:
+    id: "filter-cardtype-miles" #tapping the likeoptions
+- assertVisible: "Raffles Courtyard is removed from your collection."
+- assertVisible: "Your saved merchants can be found via your profile."
+- tapOn: "Raffles Courtyard"
+- tapOn:
+    id: "filter-cardtype-miles"
+- back
+- back
+- tapOn: ""
+- assertVisible: "Raffles Courtyard"
+- back
+- tapOn: "Dine\nout"
+- tapOn: "Search name or location"
+- inputText: "Raffles Courtyard"
+- doubleTapOn: "Raffles Courtyard"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- tapOn:
+    id: "filter-cardtype-miles" #tapping the likeoptions
+- back
+- back
+- tapOn: ""
+- assertVisible: "No Favourites"
+- tapOn: "Dine\nout"
+- tapOn: "Search name or location"
+- inputText: "Raffles Courtyard"
+- doubleTapOn: "Raffles Courtyard"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+
+#HM_Dineout_E2ETC005
+- tapOn:
+    point: "88%,22%" #three dot
+- assertVisible: "More about Raffles Courtyard"
+- assertVisible: "Store name:"
+- assertVisible:
+    text: "Raffles Courtyard"
+    index: 1
+- assertVisible: "Address:"
+- assertVisible: "Phone numbers:"
+- tapOn:
+    text: "Raffles Courtyard"
+    index: 0
+
+#HM_Dineout_E2ETC006
+
+- assertVisible: "Double your miles"
+- assertVisible:
+    text: "Make a reservation on Chope"
+    index: 0
+- assertVisible: "Choose best card to use at the restaurant"
+- assertVisible: "View Map"
+- assertVisible: "Photos"
+- swipe:
+    direction: "up"
+- assertVisible: "Cuisine"
+- runFlow:
+    when:
+      visible: "Open Now"
+    commands:
+      - assertVisible: "Open Now"
+- tapOn: "View Map"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- back
+- back
+- back
+
+#HM_Dineout_E2ETC007
+- swipe:
+    direction: "up"
+- assertVisible: "You might also like"
+- repeat:
+    while:
+      notVisible: "Hopscotch (Capitol)"
+    commands:
+      - swipe:
+          start: "90%,27%"
+          end: "55%,27%"
+- swipe:
+    start: "90%,27%"
+    end: "55%,27%"
+- runFlow:
+    when:
+      visible: "Deli Belly"
+    commands:
+      - tapOn: "Deli Belly"
+      - back
+
+
+#HM_Dineout_E2ETC008
+- swipe:
+    direction: "up"
+- assertVisible: "Earn Max Miles"
+- assertVisible: "Terms & Conditions"
+- assertVisible: "Earning Timeline"
+
+#HM_Dineout_E2ETC009
+- swipe:
+    direction: "up"
+- tapOn:
+    point: "10%,65%" #tapping the filter near owned card first option
+- assertVisible: "Card type"
+- assertVisible: "Banks"
+- assertVisible: "Cashback cards"
+- assertVisible: "Miles cards"
+- assertVisible: "American Express"
+- assertVisible: "Aspire"
+- assertVisible: "Bank of China"
+- assertVisible: "CIMB"
+- assertVisible: "Chocolate Finance"
+- assertVisible: "Citibank"
+- assertVisible: "DBS/POSB"
+- assertVisible: "DCS Card Centre"
+- assertVisible: "HSBC"
+- assertVisible: "ICBC"
+- assertVisible: "Maybank"
+- assertVisible: "OCBC"
+- assertVisible: "Standard Chartered"
+- assertVisible: "Trust"
+- assertVisible: "UOB"
+- swipe:
+    direction: "up"
+- tapOn: "See result"
+- tapOn:
+    point: "10%,65%"
+- tapOn:
+    point: "92%,49%"  #American Expree cards
+- tapOn:
+    id: "filter-cardtype-Aspire"
+- tapOn:
+    id: "filter-cardtype-Bank of China"
+- tapOn:
+    id: "filter-cardtype-CIMB"
+- tapOn:
+    id: "filter-cardtype-Chocolate Finance"
+- tapOn:
+    id: "filter-cardtype-Citibank"
+- tapOn:
+    id: "filter-cardtype-DBS/POSB"
+- tapOn:
+    id: "filter-cardtype-DCS Card Centre"
+- tapOn:
+    id: "filter-cardtype-HSBC"
+- tapOn:
+    id: "filter-cardtype-Maybank"
+- tapOn:
+    id: "filter-cardtype-OCBC"
+- tapOn:
+    id: "filter-cardtype-Standard Chartered"
+- tapOn:
+    id: "filter-cardtype-Trust"
+- tapOn:
+    id: "filter-cardtype-UOB"
+- tapOn:
+      id: "filter-cardtype-Validus Capital"
+- tapOn:
+    id: "filter-cardtype-Youtrip"
+- tapOn:
+    point: "92%,49%"  #American Expree cards
+- tapOn:
+    id: "filter-cardtype-Aspire"
+- tapOn:
+    id: "filter-cardtype-Bank of China"
+- tapOn:
+    id: "filter-cardtype-CIMB"
+- tapOn:
+    id: "filter-cardtype-Chocolate Finance"
+- tapOn:
+    id: "filter-cardtype-Citibank"
+- tapOn:
+    id: "filter-cardtype-DBS/POSB"
+- tapOn:
+    id: "filter-cardtype-DCS Card Centre"
+- tapOn:
+    id: "filter-cardtype-HSBC"
+- tapOn:
+    id: "filter-cardtype-Maybank"
+- tapOn:
+    id: "filter-cardtype-OCBC"
+- tapOn:
+    id: "filter-cardtype-Standard Chartered"
+- tapOn:
+    id: "filter-cardtype-Trust"
+- tapOn:
+    id: "filter-cardtype-UOB"
+- tapOn:
+    id: "filter-cardtype-Validus Capital"
+- tapOn:
+    id: "filter-cardtype-Youtrip"
+- tapOn: "Clear all"
+- tapOn:
+    id: "filter-cardtype-Aspire"
+- tapOn:
+    id: "filter-cardtype-Bank of China"
+- tapOn: "See result"
+- tapOn:
+    point: "10%,65%"
+- tapOn: "Filter by"  #withoutn selecting and closing the filter
+- tapOn:
+    point: "88%,72%"  #only showing points on the cards under the owned card
+- swipe:
+    direction: "up"

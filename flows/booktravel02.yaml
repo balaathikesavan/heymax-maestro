@@ -1,0 +1,54 @@
+appId: com.heymax.app
+---
+
+# HM_Book Travel_UT001
+- tapOn: "HeyMax"
+# HM_Book Travel_UT006
+- swipe:
+    direction: "up"
+- tapOn: "Shop"
+- repeat:
+    times: 4
+    commands:
+      - waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+# HM_Shop Online_UT010
+- assertVisible:
+    text: "Earn Max Miles"
+    index: 2
+- assertVisible: "Hotels & home booking, Private stays booking, Long stays booking (Max Miles awarded for Fare component only)"
+- assertVisible: "Other purchases, e.g. Flights"
+- assertVisible: "Terms & Conditions"
+- swipe:
+    direction: "up"
+- assertVisible: "Shop via HeyMax only"
+- assertVisible: "Avoid clicking external links before checkout. Max Miles cannot be earned in conjunction with other rewards programs."
+- assertVisible: "Avoid ad-blockers or extensions"
+- assertVisible: "Turn off ad blockers and other extensions when you shop."
+- assertVisible: "Use promo codes featured on HeyMax only"
+- assertVisible: "Purchases using promo codes from external sources may be rejected by our partner."
+
+# HM_Shop Online_UT011
+- assertVisible: "Earning Timeline"
+- assertVisible: "Purchase"
+- assertVisible: "Today"
+- assertVisible: "Tracked"
+- assertVisible: "In 2 days"
+- assertVisible: "Redeemable"
+- assertVisible: "In 90 days"
+
+# HM_Book Travel_UT012
+- swipe:
+    direction: "up"
+- swipe:
+    direction: "up"
+- assertVisible: "Owned cards first"
+- tapOn:
+    point: "10%,87%" #clicking the filter option
+- assertVisible: "Card type"
+- assertVisible: "Banks"
+- swipe:
+    direction: "up"
+- tapOn: "See result"
