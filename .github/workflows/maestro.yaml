@@ -31,4 +31,5 @@ jobs:
 
       - name: Run Maestro Test
         run: |
-          maestro test flows/ --app heymax.apk
+          maestro test --app heymax.apk flows/
+
