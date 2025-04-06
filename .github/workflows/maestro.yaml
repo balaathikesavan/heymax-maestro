@@ -22,8 +22,9 @@ jobs:
 
       - name: Install Maestro
         run: |
-          curl -Ls "https://get.maestro.mobile.dev" | bash
-          sudo cp $HOME/.maestro/bin/maestro /usr/local/bin/maestro
+          curl -Ls "https://get.maestro.mobile.dev" | MAESTRO_INSTALL_FORCE_PLATFORM=linux bash
+          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+
 
 
       - name: Run Maestro Test
