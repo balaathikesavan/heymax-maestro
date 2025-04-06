@@ -25,10 +25,12 @@ jobs:
           curl -Ls "https://get.maestro.mobile.dev" | MAESTRO_INSTALL_FORCE_PLATFORM=linux bash
           echo "$HOME/.maestro/bin" >> $GITHUB_PATH
 
-
+      - name: Upload APK to Maestro Cloud
+        id: upload
+        run: |
+          APP_URL=$(maestro upload-app heymax.apk)
+          echo "app_url=$APP_URL" >> $GITHUB_OUTPUT
 
       - name: Run Maestro Test
         run: |
-          maestro test --app heymax.apk flows/
-
-
+          maestro test --api-url ${{ steps.upload.outputs.app_url }} flows/
