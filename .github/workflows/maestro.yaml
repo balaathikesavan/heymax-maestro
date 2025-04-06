@@ -1,23 +1,34 @@
-name: Maestro Cloud Tests
+name: Run Maestro Android Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
 
 jobs:
-  run-maestro-tests:
+  maestro-android-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 📦 Set up Maestro CLI
-        uses: mobile-dev-inc/action-maestro-cloud@v1
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
 
-      - name: 🚀 Run Maestro tests on Cloud
-        env:
-          MAESTRO_CLOUD_API_KEY: ${{ secrets.MAESTRO_CLOUD_API_KEY }}
-        run: maestro cloud test --app app/heymax.apk --path flows
+      - name: Install Maestro
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Download APK from Google Drive
+        run: |
+          curl -L "https://drive.google.com/uc?export=download&id=1r1lM3d7dmXCDVZQLKhAKQ7gOGnz12PI1" -o heymax.apk
+
+      - name: Run Maestro Test
+        run: |
+          maestro test flows/ --app heymax.apk
