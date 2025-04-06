@@ -23,13 +23,10 @@ jobs:
       - name: Install Maestro
         run: |
           curl -Ls "https://get.maestro.mobile.dev" | bash
-          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
-
-      - name: Download APK from Google Drive
-        run: |
-          curl -L "https://drive.google.com/uc?export=download&id=1r1lM3d7dmXCDVZQLKhAKQ7gOGnz12PI1" -o heymax.apk
+          sudo mv ./maestro /usr/local/bin/maestro
 
       - name: Run Maestro Test
         run: |
           maestro test --app heymax.apk flows/
+
 
